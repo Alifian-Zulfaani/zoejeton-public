@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Vellum &amp; Indigo | Digital Craftsmanship</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@700;800;900&amp;family=Hanken+Grotesk:wght@500&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline": "#717a61",
+                    "on-primary": "#ffffff",
+                    "surface-bright": "#f9f9f9",
+                    "primary-fixed-dim": "#94db00",
+                    "on-background": "#1b1b1b",
+                    "error-container": "#ffdad6",
+                    "primary": "#456800",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#82007d",
+                    "background": "#f9f9f9",
+                    "tertiary-container": "#ffdff4",
+                    "on-secondary-fixed": "#002022",
+                    "on-surface-variant": "#414a33",
+                    "tertiary-fixed-dim": "#ffabef",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#456800",
+                    "on-tertiary-fixed": "#390036",
+                    "tertiary-fixed": "#ffd7f3",
+                    "inverse-surface": "#303030",
+                    "on-surface": "#1b1b1b",
+                    "surface-container-low": "#f3f3f3",
+                    "secondary": "#006970",
+                    "on-secondary-container": "#00686f",
+                    "tertiary": "#aa00a3",
+                    "secondary-fixed": "#7df4ff",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ba00b3",
+                    "on-primary-fixed-variant": "#334f00",
+                    "inverse-primary": "#94db00",
+                    "surface": "#f9f9f9",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-error": "#ffffff",
+                    "secondary-container": "#00eefc",
+                    "inverse-on-surface": "#f1f1f1",
+                    "on-primary-container": "#4c7300",
+                    "surface-dim": "#dadada",
+                    "error": "#ba1a1a",
+                    "secondary-fixed-dim": "#00dbe9",
+                    "surface-variant": "#e2e2e2",
+                    "primary-container": "#adff00",
+                    "surface-container": "#eeeeee",
+                    "on-primary-fixed": "#121f00",
+                    "on-secondary-fixed-variant": "#004f54",
+                    "surface-container-high": "#e8e8e8",
+                    "outline-variant": "#c1caad",
+                    "primary-fixed": "#a9f900",
+                    "on-tertiary": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "64px",
+                    "container-max": "1280px",
+                    "shadow-offset": "6px",
+                    "border-width": "4px",
+                    "gutter": "24px",
+                    "margin-mobile": "16px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "headline-lg": ["Anybody"],
+                    "display-lg": ["Anybody"],
+                    "headline-md": ["Anybody"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-bold": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Anybody"],
+                    "anybody": ["Anybody"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                    "display-lg": ["72px", {"lineHeight": "72px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                    "headline-md": ["32px", {"lineHeight": "36px", "fontWeight": "700"}],
+                    "body-lg": ["20px", {"lineHeight": "30px", "fontWeight": "500"}],
+                    "label-bold": ["14px", {"lineHeight": "16px", "fontWeight": "700"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "800"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .brutalist-border {
+            border: 4px solid #1b1b1b;
+        }
+        .brutalist-shadow {
+            box-shadow: 6px 6px 0px 0px #1b1b1b;
+        }
+        .brutalist-shadow-sm {
+            box-shadow: 4px 4px 0px 0px #1b1b1b;
+        }
+        .brutalist-shadow-hover:hover {
+            box-shadow: none;
+            transform: translate(4px, 4px);
+        }
+        .brutalist-card {
+            border: 4px solid #1b1b1b;
+            box-shadow: 6px 6px 0px 0px #1b1b1b;
+            transition: all 0.2s ease;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-100% / 2)); }
+        }
+        .animate-scroll {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<header class="sticky top-0 w-full z-50 bg-surface border-b-4 border-on-background">
+<nav class="flex justify-between items-center w-full px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="flex items-center">
+<span class="text-headline-md font-display-lg font-black tracking-tighter text-on-surface uppercase">Vellum &amp; Indigo</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label-bold text-label-bold text-primary underline decoration-4 underline-offset-8" href="#">Features</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-all" href="#">Themes</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-all" href="#">Testimonials</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-all" href="#">Pricing</a>
+<a class="font-label-bold text-label-bold text-on-surface hover:text-primary transition-all" href="#">FAQ</a>
+</div>
+<div class="flex gap-4">
+<button class="font-label-bold text-label-bold px-6 py-2 brutalist-border brutalist-shadow-sm bg-primary-container text-on-primary-container active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all">
+                Create Invitation
+            </button>
+</div>
+</nav>
+</header>
+<main>
+<!-- Hero Section -->
+<!-- Hero Section -->
+<section class="relative min-h-[auto] lg:min-h-[921px] flex flex-col lg:flex-row items-center px-margin-mobile md:px-margin-desktop py-12 lg:py-0 max-w-container-max mx-auto gap-12">
+<div class="flex-1 space-y-6 md:space-y-8 z-10 text-center lg:text-left">
+<div class="inline-block bg-on-surface text-surface px-4 py-1 font-label-caps text-[10px] md:text-label-caps font-bold">
+                DIGITAL CRAFTMANSHIP
+            </div>
+<h1 class="font-display-xl text-[48px] sm:text-[64px] lg:text-display-xl leading-[0.9] md:leading-none">
+                CRAFT MEMORIES, <br class="hidden sm:block"/>
+<span class="bg-primary-container px-4 brutalist-border inline-block mt-2 md:mt-4">NOT JUST INVITATIONS</span>
+</h1>
+<p class="font-body-lg text-base md:text-body-lg max-w-lg mx-auto lg:mx-0 text-on-surface-variant">
+                Elevate your event with bespoke digital stationary that combines the tactile elegance of vellum with the precision of modern technology.
+            </p>
+<div class="flex flex-col sm:flex-row flex-wrap gap-4 justify-center lg:justify-start">
+<button class="bg-primary px-8 py-4 text-on-primary font-headline-md brutalist-border brutalist-shadow uppercase w-full sm:w-auto">
+                    Create Now
+                </button>
+<button class="bg-surface px-8 py-4 text-on-surface font-headline-md brutalist-border brutalist-shadow uppercase flex items-center justify-center gap-2 w-full sm:w-auto">
+<span class="material-symbols-outlined">play_circle</span> Preview
+                </button>
+</div>
+</div>
+<div class="flex-1 relative w-full h-auto flex justify-center items-center py-8 lg:py-0">
+<div class="relative w-full max-w-[280px] sm:max-w-md aspect-[9/16] brutalist-border bg-on-surface brutalist-shadow-lg overflow-hidden">
+<img alt="Invitation Preview" class="w-full h-full object-cover grayscale brightness-75 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIbMzslUDHT0iDYVBfROTSai0U_3e11y3z0-Tn1h3CFes_MyEkP_UatNwXANe3_lEknmGO29I2h3IBlqENt0-qk739Posgazp7y1510VAhO_PmGzWvb-_YPH_8SekBpS-tqNIEF5T36e2a_S93LD18NN1wvO5bwyTsBrW0_AJjzQm3DkEFL-Kmlp4r-W1WyqlJt8D3O_cebyHx_j9_iH95987Pi6epHB5-pK0n4r_kFk3c02fsOKaV1jxkb-XsgTQKhxPNvrZVX34"/>
+<!-- Text Overlay -->
+<div class="absolute inset-x-0 bottom-12 flex flex-col items-center pointer-events-none overflow-hidden">
+<h2 class="text-surface font-display-xl text-[80px] md:text-[120px] opacity-20 select-none">INVITATION</h2>
+</div>
+<div class="absolute top-4 right-4 bg-secondary-container text-on-secondary brutalist-border px-4 py-2 font-label-caps text-[10px] md:text-label-caps rotate-12">
+                    NEW COLLECTION
+                </div>
+</div>
+</div>
+</section>
+<!-- Detailed Features Section (Fitur Lengkap) -->
+<section class="py-24 bg-surface-container-low px-gutter border-b-4 border-on-background">
+<div class="max-w-container-max mx-auto">
+<div class="mb-16">
+<h2 class="font-display-lg text-headline-lg uppercase mb-4">Fitur Lengkap</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Semua yang Anda butuhkan untuk undangan digital yang praktis dan elegan.</p>
+</div>
+<!-- Grid Inspired by IMAGE_7 and IMAGE_4 -->
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-0 brutalist-border bg-on-background">
+<div class="bg-surface p-10 border-b-4 lg:border-b-0 md:border-r-4 border-on-background hover:bg-primary-container transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">qr_code_2</span>
+<h3 class="font-headline-md uppercase mb-4">Check-in QR</h3>
+<p class="font-body-md text-on-surface-variant">Tamu scan QR saat datang, kehadiran langsung tercatat otomatis di dashboard.</p>
+</div>
+<div class="bg-surface p-10 border-b-4 lg:border-b-0 lg:border-r-4 border-on-background hover:bg-secondary-fixed transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">payments</span>
+<h3 class="font-headline-md uppercase mb-4">Amplop Digital</h3>
+<p class="font-body-md text-on-surface-variant">Tamu bisa kirim kado langsung lewat undangan. Praktis dan tetap sopan.</p>
+</div>
+<div class="bg-surface p-10 border-b-4 md:border-b-0 md:border-r-4 border-on-background hover:bg-primary-fixed transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">event_available</span>
+<h3 class="font-headline-md uppercase mb-4">RSVP Otomatis</h3>
+<p class="font-body-md text-on-surface-variant">Konfirmasi kehadiran langsung masuk ke sistem tanpa perlu rekap manual.</p>
+</div>
+<div class="bg-surface p-10 hover:bg-tertiary-fixed transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">map</span>
+<h3 class="font-headline-md uppercase mb-4">Navigasi Maps</h3>
+<p class="font-body-md text-on-surface-variant">Integrasi Google Maps memudahkan tamu menemukan lokasi acara Anda.</p>
+</div>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-0 brutalist-border border-t-0 bg-on-background">
+<div class="bg-surface p-10 border-b-4 lg:border-b-0 md:border-r-4 border-on-background hover:bg-surface-container-highest transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">music_note</span>
+<h3 class="font-headline-md uppercase mb-4">Musik Latar</h3>
+<p class="font-body-md text-on-surface-variant">Tambahkan lagu favorit untuk membangun suasana saat tamu membuka undangan.</p>
+</div>
+<div class="bg-surface p-10 border-b-4 lg:border-b-0 lg:border-r-4 border-on-background hover:bg-surface-container-highest transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">timer</span>
+<h3 class="font-headline-md uppercase mb-4">Countdown</h3>
+<p class="font-body-md text-on-surface-variant">Hitung mundur hari bahagia Anda untuk meningkatkan antusiasme tamu.</p>
+</div>
+<div class="bg-surface p-10 border-b-4 md:border-b-0 md:border-r-4 border-on-background hover:bg-surface-container-highest transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">chat</span>
+<h3 class="font-headline-md uppercase mb-4">Ucapan &amp; Doa</h3>
+<p class="font-body-md text-on-surface-variant">Kolom pesan digital bagi tamu untuk memberikan doa restu terbaik mereka.</p>
+</div>
+<div class="bg-surface p-10 hover:bg-surface-container-highest transition-colors group">
+<span class="material-symbols-outlined text-5xl mb-6 block group-hover:scale-110 transition-transform">devices</span>
+<h3 class="font-headline-md uppercase mb-4">Mobile Ready</h3>
+<p class="font-body-md text-on-surface-variant">Tampilan sempurna dan responsif di semua perangkat tamu Anda.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonial Slider Inspired by IMAGE_3 -->
+<section class="py-24 overflow-hidden border-b-4 border-on-background bg-surface">
+<div class="max-w-container-max mx-auto px-gutter mb-16">
+<h2 class="font-display-lg text-headline-lg uppercase text-center">Mereka Sudah Percaya</h2>
+</div>
+<div class="relative group">
+<div class="animate-scroll flex gap-8 py-4 px-4">
+<!-- Testimonial Card 1 -->
+<div class="brutalist-card bg-surface-container-lowest p-8 w-[400px] flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">format_quote</span>
+<p class="font-body-lg mb-8 italic">"Hemat 5 juta dari budget cetak undangan! Uangnya bisa buat honeymoon. Win-win solution banget."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed brutalist-border flex items-center justify-center font-bold">FA</div>
+<div>
+<p class="font-label-bold">Fajar &amp; Ayu</p>
+<p class="text-sm text-on-surface-variant">Yogyakarta</p>
+</div>
+</div>
+</div>
+<!-- Testimonial Card 2 -->
+<div class="brutalist-card bg-surface-container-lowest p-8 w-[400px] flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">format_quote</span>
+<p class="font-body-lg mb-8 italic">"Hasilnya sangat elegan dan eksklusif! Kirim ke ratusan tamu via WhatsApp jadi jauh lebih berkesan."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-fixed brutalist-border flex items-center justify-center font-bold">AS</div>
+<div>
+<p class="font-label-bold">Andi &amp; Sari</p>
+<p class="text-sm text-on-surface-variant">Jakarta</p>
+</div>
+</div>
+</div>
+<!-- Testimonial Card 3 -->
+<div class="brutalist-card bg-surface-container-lowest p-8 w-[400px] flex-shrink-0">
+<span class="material-symbols-outlined text-tertiary text-5xl mb-4">format_quote</span>
+<p class="font-body-lg mb-8 italic">"Bisa tau real-time siapa aja yang udah buka undangan dan konfirmasi hadir. Gampang atur katering!"</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-tertiary-fixed brutalist-border flex items-center justify-center font-bold">BR</div>
+<div>
+<p class="font-label-bold">Budi &amp; Rina</p>
+<p class="text-sm text-on-surface-variant">Bandung</p>
+</div>
+</div>
+</div>
+<!-- Duplicates for Infinite Loop -->
+<div class="brutalist-card bg-surface-container-lowest p-8 w-[400px] flex-shrink-0">
+<span class="material-symbols-outlined text-primary text-5xl mb-4">format_quote</span>
+<p class="font-body-lg mb-8 italic">"Hemat 5 juta dari budget cetak undangan! Uangnya bisa buat honeymoon. Win-win solution banget."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary-fixed brutalist-border flex items-center justify-center font-bold">FA</div>
+<div>
+<p class="font-label-bold">Fajar &amp; Ayu</p>
+<p class="text-sm text-on-surface-variant">Yogyakarta</p>
+</div>
+</div>
+</div>
+<div class="brutalist-card bg-surface-container-lowest p-8 w-[400px] flex-shrink-0">
+<span class="material-symbols-outlined text-secondary text-5xl mb-4">format_quote</span>
+<p class="font-body-lg mb-8 italic">"Hasilnya sangat elegan dan eksklusif! Kirim ke ratusan tamu via WhatsApp jadi jauh lebih berkesan."</p>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-secondary-fixed brutalist-border flex items-center justify-center font-bold">AS</div>
+<div>
+<p class="font-label-bold">Andi &amp; Sari</p>
+<p class="text-sm text-on-surface-variant">Jakarta</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section Inspired by IMAGE_5 -->
+<section class="py-24 bg-primary-container px-gutter border-b-4 border-on-background">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-display-lg text-headline-lg uppercase text-center mb-16">Pertanyaan Umum</h2>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<details class="brutalist-card bg-surface group" open="">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md uppercase">
+                        Berapa lama bikin undangannya?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform font-black">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md border-t-4 border-on-background">
+                        Proses pembuatan undangan sangat instan. Setelah Anda memilih template dan mengisi data, undangan langsung siap dibagikan dalam hitungan menit.
+                    </div>
+</details>
+<!-- FAQ Item 2 -->
+<details class="brutalist-card bg-surface group">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md uppercase">
+                        Bisa kirim ke banyak tamu sekaligus?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform font-black">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md border-t-4 border-on-background">
+                        Tentu! Kami menyediakan fitur sebar undangan via WhatsApp yang memungkinkan Anda mengirim pesan personal ke ratusan tamu dengan satu kali klik.
+                    </div>
+</details>
+<!-- FAQ Item 3 -->
+<details class="brutalist-card bg-surface group">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md uppercase">
+                        Gimana cara tracking tamu yang hadir?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform font-black">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md border-t-4 border-on-background">
+                        Anda akan mendapatkan akses dashboard dashboard khusus untuk memantau siapa saja yang sudah mengonfirmasi kehadiran secara real-time.
+                    </div>
+</details>
+<!-- FAQ Item 4 -->
+<details class="brutalist-card bg-surface group">
+<summary class="flex justify-between items-center p-6 cursor-pointer list-none font-headline-md uppercase">
+                        Temanya bisa dikustomisasi?
+                        <span class="material-symbols-outlined group-open:rotate-180 transition-transform font-black">expand_more</span>
+</summary>
+<div class="p-6 pt-0 font-body-md border-t-4 border-on-background">
+                        Ya, Anda bisa mengganti foto, musik, teks, hingga urutan bagian undangan sesuai dengan keinginan Anda agar tetap terasa personal.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<!-- Pricing Section -->
+<section class="py-24 px-gutter">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-20">
+<h2 class="font-display-lg text-headline-lg uppercase mb-4">Investasi Kebahagiaan</h2>
+<p class="font-body-lg text-on-surface-variant">Pilih paket yang paling sesuai dengan skala acara Anda.</p>
+</div>
+<div class="grid md:grid-cols-3 gap-12">
+<!-- Free -->
+<div class="brutalist-card bg-surface p-12 flex flex-col">
+<h3 class="font-label-bold text-primary uppercase mb-4">Standard</h3>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="font-display-lg text-display-lg leading-none">$0</span>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-4 font-body-md">
+<span class="material-symbols-outlined font-black text-primary">check_circle</span>
+                            Up to 20 Guests
+                        </li>
+<li class="flex items-center gap-4 font-body-md">
+<span class="material-symbols-outlined font-black text-primary">check_circle</span>
+                            Standard Templates
+                        </li>
+</ul>
+<button class="w-full py-5 brutalist-border font-label-bold uppercase hover:bg-surface-container transition-colors">Start Free</button>
+</div>
+<!-- Pro -->
+<div class="brutalist-card bg-primary-container p-12 flex flex-col relative scale-105 z-10">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-on-background text-on-primary px-6 py-2 font-label-bold text-sm uppercase">Paling Laris</div>
+<h3 class="font-label-bold text-on-background uppercase mb-4">Premium</h3>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="font-display-lg text-display-lg leading-none">$29</span>
+<span class="font-body-md uppercase">/event</span>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-4 font-body-md font-bold">
+<span class="material-symbols-outlined font-black">check_circle</span>
+                            Unlimited Guests
+                        </li>
+<li class="flex items-center gap-4 font-body-md font-bold">
+<span class="material-symbols-outlined font-black">check_circle</span>
+                            All Premium Templates
+                        </li>
+<li class="flex items-center gap-4 font-body-md font-bold">
+<span class="material-symbols-outlined font-black">check_circle</span>
+                            Music &amp; Video Support
+                        </li>
+<li class="flex items-center gap-4 font-body-md font-bold">
+<span class="material-symbols-outlined font-black">check_circle</span>
+                            No Watermark
+                        </li>
+</ul>
+<button class="w-full py-5 bg-on-background text-on-primary brutalist-border font-label-bold uppercase brutalist-shadow-hover transition-all">Go Premium</button>
+</div>
+<!-- Wedding Bundle -->
+<div class="brutalist-card bg-surface p-12 flex flex-col">
+<h3 class="font-label-bold text-primary uppercase mb-4">Expert</h3>
+<div class="flex items-baseline gap-1 mb-8">
+<span class="font-display-lg text-display-lg leading-none">$99</span>
+<span class="font-body-md uppercase">/bundle</span>
+</div>
+<ul class="space-y-6 mb-12 flex-grow">
+<li class="flex items-center gap-4 font-body-md">
+<span class="material-symbols-outlined font-black text-primary">check_circle</span>
+                            Full Set (Save the Date, RSVP)
+                        </li>
+<li class="flex items-center gap-4 font-body-md">
+<span class="material-symbols-outlined font-black text-primary">check_circle</span>
+                            Custom Domain Link
+                        </li>
+<li class="flex items-center gap-4 font-body-md">
+<span class="material-symbols-outlined font-black text-primary">check_circle</span>
+                            Priority Support 24/7
+                        </li>
+</ul>
+<button class="w-full py-5 brutalist-border font-label-bold uppercase hover:bg-surface-container transition-colors">Select Expert</button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Inspired by IMAGE_8 -->
+<footer class="bg-on-background text-surface border-t-4 border-on-background">
+<div class="max-w-container-max mx-auto px-margin-desktop py-24">
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-16 items-start mb-24">
+<div class="lg:col-span-1">
+<span class="text-4xl font-display-lg font-black uppercase mb-8 block text-primary-fixed">Vellum &amp; Indigo</span>
+<p class="font-body-md text-surface-variant mb-10 max-w-xs">Brutally crafted digital experiences for life's most precious milestones. We don't just send links; we create memories.</p>
+<div class="flex gap-4">
+<a class="w-14 h-14 border-4 border-surface flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl font-black">facebook</span>
+</a>
+<a class="w-14 h-14 border-4 border-surface flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl font-black">camera</span>
+</a>
+<a class="w-14 h-14 border-4 border-surface flex items-center justify-center hover:bg-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl font-black">alternate_email</span>
+</a>
+</div>
+</div>
+<div>
+<h5 class="font-label-bold text-lg uppercase mb-8 text-primary-fixed">Produk</h5>
+<ul class="space-y-6">
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Fitur Lengkap</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Tema Premium</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Daftar Harga</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Affiliate <span class="bg-primary text-on-primary px-2 py-0.5 text-xs ml-2">10%</span></a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold text-lg uppercase mb-8 text-primary-fixed">Perusahaan</h5>
+<ul class="space-y-6">
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Tentang Kami</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Blog Terbaru</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Hubungi Kami</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-bold text-lg uppercase mb-8 text-primary-fixed">Bantuan</h5>
+<ul class="space-y-6">
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">FAQ</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Panduan User</a></li>
+<li><a class="text-surface-variant hover:text-primary-fixed transition-colors uppercase font-label-bold" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="relative overflow-hidden pt-12 border-t-4 border-surface/20">
+<span class="text-[120px] md:text-[200px] lg:text-[300px] font-display-lg font-black uppercase leading-none opacity-10 select-none pointer-events-none absolute -bottom-10 left-0">VELLUM</span>
+<div class="flex flex-col md:flex-row justify-between items-end relative z-10">
+<p class="font-label-bold text-surface-variant uppercase mb-4 md:mb-0">© 2024 Vellum &amp; Indigo. Brutally crafted for events.</p>
+<p class="font-label-bold text-surface-variant uppercase">Made with Passion in ID</p>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Smooth detail transitions
+    document.querySelectorAll('details').forEach((el) => {
+        const summary = el.querySelector('summary');
+        const content = el.querySelector('div');
+
+        summary.addEventListener('click', (e) => {
+            if (el.open) {
+                e.preventDefault();
+                el.classList.add('closing');
+                setTimeout(() => {
+                    el.open = false;
+                    el.classList.remove('closing');
+                }, 200);
+            }
+        });
+    });
+</script>
+</body></html>
