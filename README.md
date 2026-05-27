@@ -1,17 +1,82 @@
-# React + Vite
+# 💍 Zoejeton — Premium Digital Wedding Invitation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Zoejeton adalah platform undangan pernikahan digital premium dengan estetika desain **neo-brutalist editorial** yang clean, berani, dan berkelas untuk target peluncuran di tahun 2026. 
 
-Currently, two official plugins are available:
+Desain ini menggabungkan layout editorial modern, garis tepi tebal khas brutalism, typography kontras tinggi, serta skema warna hangat yang elegan untuk menciptakan impresi pertama yang mendalam bagi tamu undangan Anda.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Fitur Utama
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 🎨 **Premium Wedding Brutalist Palette** — Skema warna yang dikurasi khusus dengan perpaduan *Deep Forest Green*, *Warm Terracotta*, *Champagne Gold*, dan *Soft Warm Paper*.
+- 📱 **Interactive Live Mockup** — Simulasi undangan fisik interaktif pada layar smartphone di halaman utama, lengkap dengan hitung mundur (countdown) waktu nyata, tombol RSVP, dan indikator lagu latar.
+- ⚙️ **Smooth FAQ Accordion** — Transisi accordion modern berbasis CSS grid-rows untuk ekspansi tinggi yang mulus tanpa hentakan instan.
+- 💳 **Rupiah (IDR) Pricing System** — Paket harga transparan yang disesuaikan untuk pasar lokal Indonesia (*Standard Gratis*, *Premium Rp 149rb*, dan *Eksklusif Rp 399rb*).
+- 🧭 **Dynamic Active Section Tracker** — Menu navigasi yang secara otomatis mendeteksi posisi scroll layar pengguna dan menyoroti halaman yang aktif.
+- ⚡ **Mobile First & Responsive** — Tampilan yang dioptimalkan penuh untuk kenyamanan akses pada perangkat mobile tamu undangan.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# zoejeton-public
+## 🛠️ Tech Stack & Font
+
+Aplikasi ini dibangun menggunakan teknologi modern:
+- **Core**: React + Vite (HMR enabled)
+- **Styling**: Tailwind CSS + Custom Brutalist Utility
+- **Typography**: 
+  - **Anybody** (Headline & Display font)
+  - **Hanken Grotesk** (Body font)
+  - **Space Grotesk** (Label & Button font)
+
+---
+
+## 🚀 Memulai Project
+
+### 1. Kloning Repositori
+```bash
+git clone https://github.com/Alifian-Zulfaani/zoejeton-public.git
+cd zoejeton
+```
+
+### 2. Instalasi Dependensi
+```bash
+npm install
+```
+
+### 3. Menjalankan Server Pengembangan Lokal
+```bash
+npm run dev
+```
+Aplikasi akan dapat diakses secara default di `http://localhost:5173`.
+
+### 4. Build Produksi
+```bash
+npm run build
+```
+
+---
+
+## 📂 Struktur Folder
+```text
+zoejeton/
+├── public/                 # Aset statis public (Favicon, dll)
+├── src/
+│   ├── assets/             # Aset gambar & ilustrasi
+│   ├── components/         # Komponen Modular Landing Page
+│   │   ├── Header.jsx      # Navigation Bar & Mobile Drawer
+│   │   ├── Hero.jsx        # Landing Hero & Phone Preview Mockup
+│   │   ├── Features.jsx    # Fitur-fitur Aplikasi
+│   │   ├── Themes.jsx      # Galeri Pilihan Tema Premium
+│   │   ├── Testimonials.jsx# Kumpulan Kisah Sukses Pengguna
+│   │   ├── Pricing.jsx     # Paket Harga Rupiah
+│   │   ├── FAQ.jsx         # Accordion Pertanyaan Umum
+│   │   └── Footer.jsx      # Logo branding & copyright
+│   ├── App.jsx             # Root layout perakitan komponen
+│   ├── index.css           # Custom CSS & keyframes brutalist
+│   └── main.jsx            # Entry point React
+├── index.html              # Main HTML template
+├── tailwind.config.js      # Konfigurasi Tema & Desain System
+└── vite.config.js          # Konfigurasi bundler Vite
+```
+
+---
+*Zoejeton — Brutally crafted for beautiful milestones.*
