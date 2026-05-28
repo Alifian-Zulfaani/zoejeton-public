@@ -6,6 +6,7 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Pricing from './components/Pricing';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <FAQ />
       </main>
       <Footer />
+      <ScrollToTop />
     </>
   );
 }
